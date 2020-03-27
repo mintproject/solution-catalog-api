@@ -1,0 +1,3 @@
+[submodule "server/mint_firebase"]
+	path = server/mint_firebase
+	url = git@github.com:mintproject/mint-firebase.git
