@@ -1,0 +1,87 @@
+openapi: 3.0.2
+info:
+  title: Solution Catalog
+  version: 1.1.0
+servers:
+- url: https://solution.mint.isi.edu/v1.3.0
+- url: http://localhost:8080/v1.3.0
+paths:
+  /results/{scenario_id}/{subgoal_id}/{thread_id}:
+    get:
+      description: Gets the details of a single instance of a results
+      operationId: results_scenario_id_subgoal_id_thread_id_get
+      parameters:
+      - description: The ID of the scenario
+        explode: false
+        in: path
+        name: scenario_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The ID of the subgoal
+        explode: false
+        in: path
+        name: subgoal_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The ID of the thread
+        explode: false
+        in: path
+        name: thread_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Gets the details of the results of a thread
+      summary: Get the results of a thread
+      tags:
+      - results
+      x-openapi-router-controller: openapi_server.controllers.results_controller
+components:
+  schemas:
+    scenario:
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        region:
+          type: string
+        subregion:
+          type: string
+        time_period:
+          type: object
+      type: object
+    problem_formulation:
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        region:
+          type: string
+        subregion:
+          type: string
+        time_period:
+          type: object
+      type: object
+    thread:
+      properties:
+        id:
+          type: string
+        text: {}
+        time_period: {}
+        indicators: {}
+        models: {}
+        datasets: {}
+        results: {}
+      type: object

@@ -1,0 +1,91 @@
+---
+openapi: 3.0.2
+info:
+  title: Solution Catalog
+  version: 1.1.0
+servers:
+- url: https://solution.mint.isi.edu/v1.3.0
+  description: ""
+- url: http://localhost:8080/v1.3.0
+  description: ""
+paths:
+  /results/{scenario_id}/{subgoal_id}/{thread_id}:
+    get:
+      description: Gets the details of a single instance of a results 
+      parameters:
+      - description: The ID of the scenario
+        in: path
+        name: scenario_id
+        required: true
+        schema:
+          type: string
+      - description: The ID of the subgoal
+        in: path
+        name: subgoal_id
+        required: true
+        schema:
+          type: string                
+      - description: The ID of the thread
+        in: path
+        name: thread_id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Gets the details of the results of a thread
+      summary: Get the results of a thread
+      tags:
+      - results
+components:
+  schemas:
+    scenario:
+      description: ""
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        region:
+          type: string
+        subregion:
+          type: string
+        time_period:
+          type: object
+    problem_formulation:
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        region:
+          type: string
+        subregion:
+          type: string
+        time_period:
+          type: object
+    thread:
+      description: ""
+      type: object
+      properties:
+        id:
+          description: ""
+          type: string
+        text:
+          description: ""
+        time_period:
+          description: ""
+        indicators:
+          description: ""
+        models:
+          description: ""
+        datasets:
+          description: ""
+        results:
+          description: ""
