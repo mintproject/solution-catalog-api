@@ -1,10 +1,10 @@
 openapi: 3.0.2
 info:
   title: Solution Catalog
-  version: 1.1.0
+  version: 0.0.1
 servers:
-- url: https://solution.mint.isi.edu/v1.3.0
-- url: http://localhost:8080/v1.3.0
+- url: https://solution.mint.isi.edu/v0.0.1
+- url: http://localhost:8080/v0.0.1
 paths:
   /results/{scenario_id}/{subgoal_id}/{thread_id}:
     get:
