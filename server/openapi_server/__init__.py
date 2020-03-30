@@ -1,16 +1,18 @@
 import os
 import logging.config
+from pathlib import Path
+
 from mint_firebase.mint_fetch import firebase_init
 from mint_firebase.mint_fetch import get_config_data
 
-config_filename = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'config.yaml')
+config_filename = Path(__file__).parent.parent / "mint_firebase" / "config.yaml"
 
 mint_fetch_config = get_config_data(config_filename)
 firebase_config_file = mint_fetch_config["firebase"]["credentials"]
 
-firebase_config_file_real = os.path.join(os.path.dirname(os.path.realpath(__file__)), firebase_config_file)
+firebase_config_file_real = Path(__file__).parent.parent / "mint_firebase" / firebase_config_file
 
-firebase_init(firebase_config_file_real)
+firebase_init(str(firebase_config_file_real.resolve()))
 
 # Disable Django's logging setup
 LOGGING_CONFIG = None
