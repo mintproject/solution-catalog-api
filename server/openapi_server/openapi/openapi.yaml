@@ -3,7 +3,7 @@ info:
   title: Solution Catalog
   version: 0.0.1
 servers:
-- url: https://api.solution.mint.isi.edu/v0.0.1
+- url: https://api.solutions.mint.isi.edu/v0.0.1
 - url: http://localhost:8080/v0.0.1
 paths:
   /results/{scenario_id}/{subgoal_id}/{thread_id}:
